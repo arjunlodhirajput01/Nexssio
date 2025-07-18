@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { BookOpen, Palette, User, Users, Globe, Star, ArrowRight } from 'lucide-react';
+import RippleButton from '../components/RippleButton';
+import ScrollReveal from '../components/ScrollReveal';
+import BackgroundVideo from '../components/BackgroundVideo';
 
 const HomePage = () => {
   const features = [
@@ -59,13 +62,17 @@ const HomePage = () => {
       transition={{ duration: 0.8 }}
     >
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative pt-20">
+      <BackgroundVideo
+        src="/hero-background.webm"
+        fallbackColor="from-gray-900 via-purple-900 to-black"
+        className="min-h-screen flex items-center justify-center relative pt-20"
+      >
         <div className="container mx-auto px-6 text-center">
           <motion.h1 
             className="text-5xl md:text-7xl font-bold mb-6"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
+            transition={{ delay: 0.2, duration: 1.2, ease: "easeOut" }}
           >
             Where <span className="gradient-text">Students Excel</span>,
             <br />
@@ -76,7 +83,7 @@ const HomePage = () => {
             className="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={{ delay: 0.6, duration: 1.0, ease: "easeOut" }}
           >
             Academic Excellence • Creative Solutions • Handcrafted Art - Serving 51+ Countries with 2,000+ Success Stories
           </motion.p>
@@ -85,64 +92,64 @@ const HomePage = () => {
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
+            transition={{ delay: 1.0, duration: 1.0, ease: "easeOut" }}
           >
-            <Link 
-              to="/assignments"
-              className="group bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center space-x-2 neon-glow hover-lift ripple"
-            >
-              <BookOpen size={24} />
-              <span>Get Assignment Help</span>
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            <Link to="/assignments">
+              <RippleButton variant="primary" size="lg" className="flex items-center space-x-2">
+                <BookOpen size={24} />
+                <span>Get Assignment Help</span>
+                <ArrowRight size={20} />
+              </RippleButton>
             </Link>
             
-            <Link 
-              to="/creative"
-              className="group bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center space-x-2 neon-glow hover-lift ripple"
-            >
-              <Palette size={24} />
-              <span>Explore Creative Work</span>
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            <Link to="/creative">
+              <RippleButton variant="secondary" size="lg" className="flex items-center space-x-2">
+                <Palette size={24} />
+                <span>Explore Creative Work</span>
+                <ArrowRight size={20} />
+              </RippleButton>
             </Link>
             
-            <Link 
-              to="/art-shop"
-              className="group bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center space-x-2 neon-glow hover-lift ripple"
-            >
-              <User size={24} />
-              <span>Visit Art Shop</span>
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            <Link to="/art-shop">
+              <RippleButton variant="outline" size="lg" className="flex items-center space-x-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 border-none">
+                <User size={24} />
+                <span>Visit Art Shop</span>
+                <ArrowRight size={20} />
+              </RippleButton>
             </Link>
           </motion.div>
         </div>
-      </section>
+      </BackgroundVideo>
 
       {/* Features Section */}
       <section className="py-20 bg-gray-800/50">
         <div className="container mx-auto px-6">
-          <motion.div 
+          <ScrollReveal 
             className="text-center mb-16"
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            direction="up"
+            delay={0.2}
           >
             <h2 className="text-4xl font-bold mb-4">Why Choose DualServe?</h2>
             <p className="text-xl text-gray-400">Excellence in both academic support and creative solutions</p>
-          </motion.div>
+          </ScrollReveal>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <motion.div
+              <ScrollReveal
                 key={index}
                 className="text-center p-6 glass-effect rounded-lg hover-lift"
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                direction="up"
+                delay={index * 0.1}
               >
-                <feature.icon size={48} className="mx-auto mb-4 text-purple-400" />
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-400">{feature.description}</p>
-              </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05, rotateY: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <feature.icon size={48} className="mx-auto mb-4 text-purple-400" />
+                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-gray-400">{feature.description}</p>
+                </motion.div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -151,63 +158,67 @@ const HomePage = () => {
       {/* Testimonials Section */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <motion.div 
+          <ScrollReveal 
             className="text-center mb-16"
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            direction="up"
           >
             <h2 className="text-4xl font-bold mb-4">What Our Clients Say</h2>
             <p className="text-xl text-gray-400">Trusted by students and businesses worldwide</p>
-          </motion.div>
+          </ScrollReveal>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <motion.div
+              <ScrollReveal
                 key={index}
                 className="p-6 glass-effect rounded-lg hover-lift"
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                direction="up"
+                delay={index * 0.2}
               >
-                <div className="flex items-center mb-4">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full mr-4 border-2 border-purple-400"
-                  />
-                  <div>
-                    <div className="text-sm text-gray-400">
-                      <strong className="text-white">{testimonial.name}</strong> - {testimonial.location}
+                <motion.div
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="flex items-center mb-4">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full mr-4 border-2 border-purple-400"
+                    />
+                    <div>
+                      <div className="text-sm text-gray-400">
+                        <strong className="text-white">{testimonial.name}</strong> - {testimonial.location}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} size={20} className="text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-300 mb-4">"{testimonial.text}"</p>
-              </motion.div>
+                  <div className="flex mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} size={20} className="text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                  <p className="text-gray-300 mb-4">"{testimonial.text}"</p>
+                </motion.div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* Trust Banner */}
-      <motion.section 
+      <ScrollReveal
         className="py-12 bg-gradient-to-r from-purple-900 to-pink-900"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
+        direction="up"
       >
-        <div className="container mx-auto px-6 text-center">
+        <motion.div
+          className="container mx-auto px-6 text-center"
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.3 }}
+        >
           <h3 className="text-2xl font-bold mb-2">Our Business Runs on Trust</h3>
           <p className="text-lg text-gray-200">
             You Always Pay <strong>After</strong> Submission. 100% Confidential. Student-Friendly. Always.
           </p>
-        </div>
-      </motion.section>
+        </motion.div>
+      </ScrollReveal>
     </motion.div>
   );
 };
