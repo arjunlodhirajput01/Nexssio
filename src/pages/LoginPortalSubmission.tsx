@@ -362,6 +362,13 @@ const LoginPortalSubmission = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.button
+              onClick={() => {
+                const phoneNumber = "+917206366729";
+                const userName = "User"; // You can get this from user context if logged in
+                const message = `Hey I am ${userName} I getting Started with Portal Submission - Let me know more`;
+                const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+              }}
               className="bg-white text-green-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

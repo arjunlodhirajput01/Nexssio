@@ -72,7 +72,7 @@ const HomePage = () => {
             className="text-5xl md:text-7xl font-bold mb-6"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 1.2, ease: "easeOut" }}
+            transition={{ delay: 0.2, duration: 1.2, ease: "easeOut", fill: "forwards" }}
           >
             Where <span className="gradient-text">Students Excel</span>,
             <br />
@@ -83,7 +83,7 @@ const HomePage = () => {
             className="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 1.0, ease: "easeOut" }}
+            transition={{ delay: 0.6, duration: 1.0, ease: "easeOut", fill: "forwards" }}
           >
             Academic Excellence • Creative Solutions • Handcrafted Art - Serving 51+ Countries with 2,000+ Success Stories
           </motion.p>
@@ -92,7 +92,7 @@ const HomePage = () => {
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1.0, duration: 1.0, ease: "easeOut" }}
+            transition={{ delay: 1.0, duration: 1.0, ease: "easeOut", fill: "forwards" }}
           >
             <Link to="/assignments">
               <RippleButton variant="primary" size="lg" className="flex items-center space-x-2">
