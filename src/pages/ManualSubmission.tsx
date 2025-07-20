@@ -446,11 +446,18 @@ const ManualSubmission = () => {
             
             <motion.button
               type="submit"
+              onClick={(e) => {
+                e.preventDefault();
+                const phoneNumber = "+917206366729";
+                const message = `I am ${formData.name}. I wanted to Submit My Assignment.`;
+                const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+              }}
               className="w-full bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white py-4 px-8 rounded-lg font-bold text-lg transition-all duration-300"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Submit Assignment Details
+              Submit Your Assignment
             </motion.button>
             
             <p className="text-center text-gray-400 mt-4">

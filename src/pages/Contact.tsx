@@ -92,11 +92,25 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Contact form submitted:', formData);
-    setIsSubmitted(true);
     
-    // Reset form after 3 seconds
+    // Send message to WhatsApp
+    const phoneNumber = "+917206366729";
+    const whatsappMessage = `Hello Nexssio Team,
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Service: ${formData.service}
+Subject: ${formData.subject}
+Urgency: ${formData.urgency}
+
+Message: ${formData.message}`;
+
+    const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappUrl, '_blank');
+    
+    // Show success message
+    setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({

@@ -222,12 +222,19 @@ const LogoAnimations = () => {
           <p className="text-xl text-gray-200 mb-8">
             Let's create a stunning logo animation that brings your brand to life.
           </p>
-          <Link
-            to="/contact"
+          <motion.button
+            onClick={() => {
+              const phoneNumber = "+917206366729";
+              const message = "I would like to create a logo animation with Nexssio.";
+              const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
+              window.open(whatsappUrl, '_blank');
+            }}
             className="bg-white text-yellow-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             Start Your Logo Animation
-          </Link>
+          </motion.button>
         </div>
       </motion.section>
 

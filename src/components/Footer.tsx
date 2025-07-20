@@ -70,7 +70,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 DualServe. All rights reserved. | Pay only after submission.</p>
+          <p>&copy; 2024 Nexssio. All rights reserved. | Pay only after submission.</p>
         </div>
       </div>
     </motion.footer>

@@ -33,6 +33,7 @@ import ManualSubmission from './pages/ManualSubmission';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import FeedbackForm from './pages/FeedbackForm';
+import FeedbackShowcase from './pages/FeedbackShowcase';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css';

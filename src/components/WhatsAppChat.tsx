@@ -122,7 +122,7 @@ const WhatsAppChat: React.FC = () => {
                   <MessageCircle size={16} className="text-green-500 gaming:text-green-400" />
                 </div>
                 <div>
-                  <h3 className="font-semibold">DualServe Support</h3>
+                  <h3 className="font-semibold">Nexssio Support</h3>
                   <p className="text-xs opacity-90">Online now</p>
                 </div>
               </div>

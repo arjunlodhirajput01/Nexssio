@@ -222,12 +222,19 @@ const BusinessDocumentary = () => {
           <p className="text-xl text-gray-200 mb-8">
             Let's create a compelling documentary that showcases your business journey and achievements.
           </p>
-          <Link
-            to="/contact"
+          <motion.button
+            onClick={() => {
+              const phoneNumber = "+917206366729";
+              const message = "I would like to start a documentary project with Nexssio.";
+              const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
+              window.open(whatsappUrl, '_blank');
+            }}
             className="bg-white text-blue-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             Start Your Documentary Project
-          </Link>
+          </motion.button>
         </div>
       </motion.section>
 
