@@ -364,8 +364,7 @@ const LoginPortalSubmission = () => {
             <motion.button
               onClick={() => {
                 const phoneNumber = "+917206366729";
-                const userName = "User"; // You can get this from user context if logged in
-                const message = `Hey I am ${userName} I getting Started with Portal Submission - Let me know more`;
+                const message = "Hey I am [Full Name]. I want to Get Started With Portal Submission.";
                 const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
                 window.open(whatsappUrl, '_blank');
               }}
@@ -379,7 +378,7 @@ const LoginPortalSubmission = () => {
               to="/manual-submission"
               className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-green-900 transition-colors"
             >
-              Or Try Manual Submission
+              Try Manual Submission
             </Link>
           </div>
         </div>
